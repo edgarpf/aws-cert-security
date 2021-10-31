@@ -1,1 +1,1 @@
-# aws-cert-security
+# Tips for AWS Certified Security – Specialty
