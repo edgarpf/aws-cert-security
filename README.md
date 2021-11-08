@@ -75,3 +75,25 @@ ADFS federation occurs with the participation of two parties; the identity or cl
 There are two ways to avoid this issue:
   * The application can implement retry with an exponential back-off strategy.  Thus, the application would retry sign-in several times over a longer time period.  A failure should be reported only after repeated sign-in failures.
   * Multi-User Rotation can be enabled.  In this scenario, separate “master” user credentials are used for secret rotation. The old version of the secret continues to operate and handle service requests while the new version is prepared and tested. The old version isn't deleted until after the clients switch to the new version. There's no downtime while changing between versions.
+* With the AWS KMS Encrypt CLI command, you can directly encrypt small amounts of arbitrary data that is less than 4k, such as a personal identifier or database password.
+* The correct sequence of how KMS manages the keys when used along with the Redshift cluster service is the master keys encrypt the cluster key. The cluster key encrypts the database key. The database key encrypts the data encryption keys.
+* If you need to sniff the actual network packets, the ideal approach would be to use a network monitoring tool provided by an AWS partner.
+* VPC Gateway Endpoint supports Amazon S3 and Amazon DynamoDB services and not the KMS Service. A VPC Interface Endpoint enables a private connection between VPC to KMS service without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.
+* The following objectives would you achieve by implementing an IPSec tunnel:
+  * Data encryption across the Internet
+  * Protection of data in transit over the Internet
+  * Peer identity authentication between VPN gateway and customer gateway
+  * Data integrity protection across the Internet
+* In S3 It is possible to have different encryption keys for different versions of the same object.
+* To allow read access to these objects from your website, you can add a bucket policy that allows s3: GetObject operation with a condition, using the aws: referer key, that the get request must originate from specific webpages.
+* The Amazon DynamoDB service uses VPC Gateway Endpoint for enabling private connection to a VPC and you must create a route table rule for prefix list ID of the DynamoDB service with the DynamoDB VPC endpoint as the target.
+* You need to generate the SSH key pairs of EC2 Instances by third-party tools so that you can have complete control of the access keys.
+* If you cannot find the SSH private key for instance, and it seems that the key is lost eetach the root volume, attach it to another instance as a data volume, modify the authorized_keys file to include the new SSH public key and move the volume back.
+* In a public AMI identify unauthorized public SSH keys by locating all authorized_keys files on disk. Remove any unrecognized keys.
+* the command with “--sse-specification Enabled=true“ parameter ensures that the data for the DynamoDB table is encrypted at rest.
+* In combination with information gleaned from your VPC Flow Logs, AWS CloudTrail Event Logs, and DNS logs, GuardDuty can detect many different types of dangerous and mischievous behavior, including probes for known vulnerabilities, port scans, and access from unusual locations.
+* You can use an OIDC identity provider when you want to establish trust between an OIDC-compatible IdP—such as Google, Salesforce, and many others—and your AWS account. This is useful if you create a mobile app or web application that requires access to AWS resources, but you don't want to create custom sign-in code or manage your own user identities.
+* A user pool is a user directory in Amazon Cognito. The users can sign in to your web or mobile app through Amazon Cognito with a user pool. Users can also sign in through social identity providers like Facebook or Amazon and through SAML identity providers. Whether your users sign in directly or through a third party, all members of the user pool have a directory profile that you can access through an SDK.
+* You can use a new condition key, aws:PrincipalOrgID, in IAM policies to require all principals to access the resource from an account in the organization.
+*  Amazon API Gateway Lambda authorizer (formerly known as a custom authorizer) is a Lambda function that you provide to control access to your API methods. A Lambda authorizer uses bearer token authentication strategies, such as OAuth or SAML. It can also use the information described by headers, paths, query strings, stage variables, or context variables request parameters.
+* 
