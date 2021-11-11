@@ -96,4 +96,18 @@ There are two ways to avoid this issue:
 * A user pool is a user directory in Amazon Cognito. The users can sign in to your web or mobile app through Amazon Cognito with a user pool. Users can also sign in through social identity providers like Facebook or Amazon and through SAML identity providers. Whether your users sign in directly or through a third party, all members of the user pool have a directory profile that you can access through an SDK.
 * You can use a new condition key, aws:PrincipalOrgID, in IAM policies to require all principals to access the resource from an account in the organization.
 *  Amazon API Gateway Lambda authorizer (formerly known as a custom authorizer) is a Lambda function that you provide to control access to your API methods. A Lambda authorizer uses bearer token authentication strategies, such as OAuth or SAML. It can also use the information described by headers, paths, query strings, stage variables, or context variables request parameters.
-* 
+* CloudFront signed URLs should be used for securing and limiting access to content in RTMP distribution.
+* API Gateway Access logs contain details about the user and IPs accessing the APIs exposed via API Gateway.
+* Amazon S3 Glacier is the most cost-effective storage solution for archive data. Amazon S3 Glacier Vault Lock can be used to implement a “Write-Once-Read-Many” archive storage solution.
+* Elliptic Curve Diffie-Hellman Ephemeral (ECDHE) cipher suites support PFS.
+* You can create a private CA using the ACM console. After filling in all the required information, such as CA subject name and key algorithm, you can fully manage the private CA.
+* Users can create an audit report for a private CA. The report is saved in an S3 bucket and contains the required information. 
+* A private CA in ACM is a highly available service. However, its scope is within an AWS region. You need to create multiple CAs that run independently in at least two regions for redundancy and disaster recovery.
+* Multiple certificates can be installed on the HTTPS listener. The application load balancer supports SNI, and it can choose a certificate for a client automatically.
+* AWS supports the identity federation with SAML. You use an IAM identity provider when you want to establish trust between a SAML-compatible IdP such as Shibboleth or Active Directory Federation Services and AWS so that users in your organization can access AWS resources.
+* The temporary security credentials returned by STS include SessionToken, SecretAccessKey, and AccessKeyId. Applications can use these credentials to sign calls to AWS service API operations.
+* By default, the temporary security credentials created by AssumeRoleWithWebIdentity last for one hour. However, you can use the optional DurationSeconds parameter to specify the duration of your session. You can provide a value from 900 seconds (15 minutes) up to the maximum session duration setting for the role. This setting can have a value from 1 hour to 12 hours.
+* You can configure GuardDuty to use your own custom trusted IP list containing your allowed IP addresses for secure communication with your AWS infrastructure and applications. By doing so, GuardDuty would ignore the Scanner IP warnings and alerts.
+* AWS Firewall Manager can help manage WAF web ACLs for accounts within an AWS Organizations.
+* Exposed Access Keys check-in AWS Trusted Advisor can identify potentially leaked or compromised access keys. When there is an alert, users can take immediate actions to secure the account.
+* Users can create a VPC endpoint for the CloudWatch Logs service to establish a private connection. You can establish a private connection between the VPC and CloudWatch Logs via an interface VPC endpoint to meet the security requirements.
