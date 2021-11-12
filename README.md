@@ -111,3 +111,11 @@ There are two ways to avoid this issue:
 * AWS Firewall Manager can help manage WAF web ACLs for accounts within an AWS Organizations.
 * Exposed Access Keys check-in AWS Trusted Advisor can identify potentially leaked or compromised access keys. When there is an alert, users can take immediate actions to secure the account.
 * Users can create a VPC endpoint for the CloudWatch Logs service to establish a private connection. You can establish a private connection between the VPC and CloudWatch Logs via an interface VPC endpoint to meet the security requirements.
+* Parameter Store does support versioning. You can specify a parameter name and a specific version number in API calls and SSM documents.
+* While deploying CloudHSM Cluster, you can include multiple HSM instances in different availability zones which are automatically synchronized between each other. 
+* A common Virtual Private Gateway is required and each VPG supports ten IPsec VPN connections. Besides, for each local data center, a redundant Site-to-Site VPN connection should be established to ensure connectivity if one Customer Gateway becomes unavailable. Two Customer Gateways are required for each local data center
+* A Lambda authorizer is useful if you want to implement a custom authorization scheme that uses a bearer token authentication strategy such as OAuth or SAML or uses request parameters to determine the caller's identity. When a client makes a request to one of your API's methods, API Gateway calls your Lambda authorizer, which takes the caller's identity as input and returns an IAM policy as output.
+* The external ID will be checked when IAM entities assume the role, which prevents the Confused Deputy problem. AWS does not treat the external ID as a secret. After creating a secret like an access key pair or a password in AWS, you cannot view them again. The external ID for a role can be seen by anyone with permission to view the role.
+* In order to enable the single sign-on to AWS, the third-party IdP should be configured to use AWS as a relying party.
+* Microsoft Active Directory standard edition is ideal for small and midsize businesses with up to 5,000 employees and 30,000 directory objects. It also supports a large number of AWS managed applications and services.
+* You can bind up to 25 certificates per load balancer. 
