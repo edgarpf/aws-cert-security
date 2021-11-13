@@ -120,3 +120,4 @@ There are two ways to avoid this issue:
 * Microsoft Active Directory standard edition is ideal for small and midsize businesses with up to 5,000 employees and 30,000 directory objects. It also supports a large number of AWS managed applications and services.
 * You can bind up to 25 certificates per load balancer. 
 * Create a VPC endpoint for AWS KMS with private DNS enabled and add the aws:sourceVpce condition to the AWS KMS key policy referencing the company's VPC endpoint ID. With that VPC and KMS communication will travel entirely within the AWS network and not use public service endpoints.
+* CloudTrail console will store all the events for the last 90 days in the even history.
