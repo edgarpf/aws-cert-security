@@ -121,3 +121,12 @@ There are two ways to avoid this issue:
 * You can bind up to 25 certificates per load balancer. 
 * Create a VPC endpoint for AWS KMS with private DNS enabled and add the aws:sourceVpce condition to the AWS KMS key policy referencing the company's VPC endpoint ID. With that VPC and KMS communication will travel entirely within the AWS network and not use public service endpoints.
 * CloudTrail console will store all the events for the last 90 days in the even history.
+* Service Control Policies can be used to restrict access to all the users, including ROOT.
+* We cannot export public certificates created by ACM and We can export private certificate created by ACM and use them in EC2.
+* What happens if EBS is encrypted with CMK and that CMK is deleted?
+  * EBS will work till it is not unmounted. Back up your data quickly.
+* You cannot automatically rotate CMKs with imported key material. You can rotate them manually.
+* CMKs are region-specific and cannot be shared across regions.
+* If you have accidentally deleted the imported key material in CMK, then you can download the new wrapping key and import token, and import the original key into the existing CMK.
+* With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model.
+* 
