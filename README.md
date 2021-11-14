@@ -129,4 +129,3 @@ There are two ways to avoid this issue:
 * CMKs are region-specific and cannot be shared across regions.
 * If you have accidentally deleted the imported key material in CMK, then you can download the new wrapping key and import token, and import the original key into the existing CMK.
 * With S3 Object Lock, you can store objects using a write-once-read-many (WORM) model.
-* 
